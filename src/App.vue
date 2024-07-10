@@ -10,9 +10,50 @@ import HelloWorld from './components/HelloWorld.vue'
     <a href="https://vuejs.org/" target="_blank">
       <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
     </a>
+<!--    <a href="">-->
+<!--      <img :src= imagePath(imageVisible) class="logo vue" alt="Vue logo" />-->
+<!--    </a>-->
+<!--    <a href="">-->
+<!--      <img :src= imagePath(imageNIR) class="logo vue" alt="Vue logo" />-->
+<!--    </a>    -->
+    <a href="">
+      <img :src= imagePath(imageVisible) class="logo vue" alt="Vue logo" />
+    </a>
+    <a href="">
+      <img src= "./assets/images/Лик Богородицы_NIR.jpg" class="logo vue" alt="Vue logo" />
+    </a>
   </div>
+  {{imagePath(imageVisible)}}
   <HelloWorld msg="Vite + Vue" />
 </template>
+<script>
+
+
+export default {
+  name: 'App',
+  components: {},
+  data() {
+  return {
+      baseURL: '/visible-nir/',
+      prefixURL: './assets/images/',
+      imageVisible: 'Лик Богородицы_Visible.jpg',
+      imageNIR: 'Лик Богородицы_NIR.jpg'
+
+    }
+  },
+  methods: {
+    imagePath(v) {
+
+      const raw = `./assets/images/${v}`;
+      console.log('raw', raw);
+      const result = raw;
+      console.log('result', result);
+      return result;
+    },
+  },
+}
+
+</script>
 
 <style scoped>
 .logo {
